@@ -1,0 +1,155 @@
+MDBoxLayout:
+    orientation: "vertical"
+
+
+
+    MDBottomNavigation:
+        id: panel
+
+        MDBottomNavigationItem:
+            name: "home"
+            text: "Home"
+            icon: "home"
+
+            BoxLayout:
+                orientation: 'vertical'
+                size: root.width, root.height
+
+                MDToolbar:
+                    id: toolbar
+                    title: "Motivational Quotes"
+                    md_bg_color: app.theme_cls.primary_color
+
+                Carousel:
+                    id: slide_show
+                    direction: "right"
+                    loop: True
+
+                    AsyncImage:
+                        source: "https://ctl.s6img.com/society6/img/CfsEYTFVeLhAhtdef9G9EbxKIXk/w_1500/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/2ae4a965c17e445ba1bc33daa1c3eacd/~~/8-jocko-willink-quotes-191106-prints.jpg"
+
+                    AsyncImage:
+                        source: "https://1.bp.blogspot.com/-9o-J5fnIORw/Xj5VoSD5mdI/AAAAAAAAB2k/6McCdT1qhjMSj7f_8ybKEmZ0C-g6T_t8gCLcBGAsYHQ/s400/Jocko-Willink-Quotes.-Jocko-Willink-Inspirational-Quotes%252C-Leadership%252C-Wisdom-%2526-Discipline.-Short-Lines-Words0.jpg"
+
+                    AsyncImage:
+                        source: "https://www.goalcast.com/wp-content/uploads/2018/02/eric-thomas-quote-constructive-criticism-1-708x398.jpg"
+
+                    AsyncImage:
+                        source: "https://quotefancy.com/media/wallpaper/3840x2160/813661-Eric-Thomas-Quote-Where-there-is-no-struggle-there-is-absolutely.jpg"
+
+                    AsyncImage:
+                        source: "https://pics.me.me/dont-sit-around-feeling-sorry-for-yourself-get-up-and-24572444.png"
+
+                    AsyncImage:
+                        source: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/motivation-get-out-of-your-comfort-zone-quote-motivational-flow.jpg"
+
+                    AsyncImage:
+                        source: "http://img.picturequotes.com/2/930/929877/take-control-of-your-emotions-before-your-emotions-take-control-of-you-quote-1.jpg"
+
+        MDBottomNavigationItem:
+            name: "Speeches"
+            text: "Speeches"
+            icon: "dumbbell"
+
+            ScrollView:
+                size: self.size
+
+                MDFloatLayout:
+                    orientation: 'vertical'
+                    size: root.width, root.height
+
+                    MDToolbar:
+                        id: toolbar
+                        title: "Motivational Speeches"
+                        md_bg_color: app.theme_cls.primary_color
+                        pos_hint: {'y': .9}
+
+                    MDRoundFlatButton:
+                        text: "Savage Mentality"
+                        pos_hint: {'center_x': .32, 'y': .7}
+                        on_release: app.savage.play()
+                        elevation_normal: 12
+
+                    MDRectangleFlatButton:
+                        text: "Stop"
+                        pos_hint: {'center_x': .68, 'y': .7}
+                        on_release: app.savage.stop()
+                        elevation_normal: 12
+
+                    MDRoundFlatButton:
+                        text: "Take Responsibility"
+                        pos_hint: {'center_x': .32, 'y': .55}
+                        on_release: app.responsibility.play()
+                        elevation_normal: 12
+
+                    MDRectangleFlatButton:
+                        text: "Stop"
+                        pos_hint: {'center_x': .68, 'y': .55}
+                        on_release: app.responsibility.stop()
+                        elevation_normal: 12
+
+                    MDRoundFlatButton:
+                        text: "Procrastination"
+                        pos_hint: {'center_x': .32, 'y': .4}
+                        on_release: app.procrastination.play()
+                        elevation_normal: 12
+
+                    MDRectangleFlatButton:
+                        text: "Stop"
+                        pos_hint: {'center_x': .68, 'y': .4}
+                        on_release: app.procrastination.stop()
+                        elevation_normal: 12
+
+                    MDRoundFlatButton:
+                        text: "Relentless"
+                        pos_hint: {'center_x': .32, 'y': .25}
+                        on_release: app.relentless.play()
+                        elevation_normal: 12
+
+                    MDRectangleFlatButton:
+                        text: "Stop"
+                        pos_hint: {'center_x': .68, 'y': .25}
+                        on_release: app.relentless.stop()
+                        elevation_normal: 12
+
+                    MDRoundFlatButton:
+                        text: "Feelings"
+                        pos_hint: {'center_x': .32, 'y': .1}
+                        on_release: app.feelings.play()
+                        elevation_normal: 12
+
+                    MDRectangleFlatButton:
+                        text: "Stop"
+                        pos_hint: {'center_x': .68, 'y': .1}
+                        on_release: app.feelings.stop()
+                        elevation_normal: 12
+
+
+        MDBottomNavigationItem:
+            name: "TodoList"
+            text: "To-Do"
+            icon: "format-list-checks"
+
+            MDFloatLayout:
+                md_bg_color: [1,1,1,1]
+
+                MDToolbar:
+                    id: toolbar
+                    title: "To-Do List"
+                    md_bg_color: app.theme_cls.primary_color
+                    pos_hint: {'y': .9}
+
+
+                ScrollView:
+                    pos_hint: {'center_y': .5, 'center_x': .5}
+                    size_hint: .9, .8
+
+                    MDList:
+                        id: container
+
+
+                MDFloatingActionButton:
+                    icon: 'plus-thick'
+                    on_release: app.show_task_dialog()
+                    elevation_normal: 12
+                    pos_hint: {'x': .8, 'y':.05}

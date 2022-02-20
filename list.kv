@@ -1,0 +1,23 @@
+<ListItemWithCheckbox>:
+    id: the_list_item
+    markup: True
+
+    LeftCheckbox:
+        id: check
+        on_release:
+            root.mark(check, the_list_item)
+
+
+
+    IconRightWidget:
+        icon: 'trash-can-outline'
+        theme_text_color: "Custom"
+        text_color: 1, 0, 0, 1
+        padding: '15dp'
+        on_release:
+            root.delete_item(the_list_item)
+
+    DraggableLabel:
+        icon: 'drag'
+        pos_hint: {'center_y': .5, 'center_x': .95}
+        size_hint: .05, .05
